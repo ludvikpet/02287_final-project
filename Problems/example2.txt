@@ -1,0 +1,29 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J
+##Feature_propositions
+Earth shape: round, round, flat
+##Edge_relations:
+A: B, C
+B: A, D, E
+C: A, F, G
+D: B, H
+E: B, I
+F: C
+G: C, J
+H: D
+I: E
+J: G
+##Agent_assignments:
+A: round, left, is_not_expert
+B: round, left, is_not_expert
+C: round, left, is_not_expert
+D: flat, right, is_expert
+E: round, left, is_not_expert
+F: round, left, is_not_expert
+G: round, left, is_not_expert
+H: round, left, is_not_expert
+I: round, left, is_not_expert
+J: round, left, is_not_expert
+##pre_and_post_conditions:
+Earth shape: AND(is_expert, flat) -> flat
+Earth shape: AND(round, F(1,flat)) -> flat

@@ -1,0 +1,53 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
+##Feature_propositions
+V_ES: round, flat           ## Earth shape
+V_P: left, centre, right    ## Politics
+V_E: true, false            ## Is expert
+V_M: naive, resistant       ## Mindset
+##Edge_relations:
+A: B, C, J, F
+B: A, D, E, C, F
+C: A, F, G, B, E, G
+D: B, H
+E: B, I, C
+F: C, A, B
+G: C, H, C
+H: D, G
+I: E
+J: K, A, Q, N
+K: L, M, J, O
+L: K, N, O
+M: K, P, Q, R
+N: L, R, J, Q
+O: L, S, K
+P: M, T, S
+Q: M, J, N
+R: N, M
+S: O, P
+T: Q, P
+##Agent_assignments:
+A: V_ES(round), V_P(left), V_E(false), V_M(naive)
+B: V_ES(round), V_P(left), V_E(false), V_M(naive)
+C: V_ES(round), V_P(left), V_E(false), V_M(naive)
+D: V_ES(flat), V_P(right), V_E(true), V_M(naive)
+E: V_ES(round), V_P(left), V_E(false), V_M(resistant)
+F: V_ES(round), V_P(left), V_E(false), V_M(naive)
+G: V_ES(round), V_P(left), V_E(false), V_M(resistant)
+H: V_ES(round), V_P(left), V_E(false), V_M(naive)
+I: V_ES(round), V_P(left), V_E(false), V_M(resistant)
+J: V_ES(round), V_P(left), V_E(false), V_M(naive)
+K: V_ES(round), V_P(right), V_E(false), V_M(resistant)
+L: V_ES(round), V_P(right), V_E(false), V_M(naive)
+M: V_ES(round), V_P(centre), V_E(false), V_M(resistant)
+N: V_ES(round), V_P(centre), V_E(false), V_M(naive)
+O: V_ES(round), V_P(left), V_E(false), V_M(resistant)
+P: V_ES(round), V_P(left), V_E(false), V_M(naive)
+Q: V_ES(round), V_P(right), V_E(false), V_M(resistant)
+R: V_ES(round), V_P(right), V_E(false), V_M(naive)
+S: V_ES(round), V_P(centre), V_E(false), V_M(resistant)
+T: V_ES(round), V_P(centre), V_E(false), V_M(naive)
+##pre_and_post_conditions:
+Earth shape: AND(V_E(true), V_ES(flat)) -> V_ES(flat)
+Earth shape: AND(V_ES(round), F(1,V_ES(flat)), V_M(naive)) -> V_ES(flat)
+Earth shape: AND(V_ES(round), F(2,V_ES(flat)), V_M(resistant)) -> V_ES(round)

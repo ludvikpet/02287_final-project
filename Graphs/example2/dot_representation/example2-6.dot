@@ -1,0 +1,21 @@
+graph {
+ rankdir=LR;
+A [style=filled, color=red];
+B [style=filled, color=red];
+C [style=filled, color=red];
+D [style=filled, color=red];
+E [style=filled, color=red];
+F [style=filled, color=red];
+G [style=filled, color=red];
+I [style=filled, color=red];
+A -- {{B C }}
+B -- {{D E }}
+C -- {{F G }}
+D -- {{H }}
+E -- {{I }}
+F -- {{}}
+G -- {{J }}
+H -- {{}}
+I -- {{}}
+J -- {{}}
+}

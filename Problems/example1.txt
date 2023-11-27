@@ -1,0 +1,42 @@
+Agents:
+A, B, C, D, E, F, G, H, I, J
+Edges:
+A: B, D, E, F
+B: I, J
+C: G, I, J
+D: L, I, H, A, B
+E: L, I, H, J
+F:
+G: H, J, A
+H: G, D, E
+I: L, D, A
+J: A
+Feature Propositions:
+Earth shape: flat, round, indifferent
+Politics: left, centre, right
+Agent assignments:
+A: flat, right
+B: round, centre
+C: round, left
+D: round, right
+E: round, left
+F: round, left
+G: round, right
+H: round, centre
+I: round, right
+J: round, left
+pre- and post conditions:
+Earth shape: {indifferent, right, <F>flat}, flat
+Earth shape: {indifferent, centre, <4,F>flat}, flat
+Earth shape: {round, right, <F>}
+Beliefs assignments:
+A: 3, 0.5
+B: 1, 0.5
+C: 3, 0.5
+D: 1, 0.5
+E: round, 0.5
+F: round, 0.5
+G: round, 0.5
+H: round, 0.5
+I: round, 0.5
+J: round, 0.5
