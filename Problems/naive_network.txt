@@ -1,0 +1,50 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
+##Feature_propositions
+Earth shape: round, flat
+##Edge_relations:
+A: B, J
+B: A, C, D, F
+C: B, E, F, G
+D: B, H
+E: C, I
+F: B, C
+G: C, H
+H: D, G
+I: E
+J: A, K, N, Q
+K: J, L, O
+L: K, N, O
+M: P, Q
+N: J, L, R, Q
+O: K, L, S
+P: M, T, S
+Q: M, J, N, T
+R: N
+S: O, P
+T: Q, P
+##Agent_assignments:
+A: round, left, is_not_expert, naive
+B: round, left, is_not_expert, naive
+C: round, left, is_not_expert, naive
+D: flat, right, is_not_expert, naive
+E: round, left, is_not_expert, resistant
+F: round, left, is_not_expert, naive
+G: round, left, is_not_expert, resistant
+H: round, left, is_not_expert, naive
+I: round, left, is_not_expert, resistant
+J: round, left, is_not_expert, naive
+K: round, right, is_not_expert, resistant
+L: round, right, is_not_expert, naive
+M: round, centre, is_not_expert, resistant
+N: round, centre, is_not_expert, naive
+O: round, left, is_not_expert, resistant
+P: round, left, is_not_expert, naive
+Q: round, right, is_not_expert, resistant
+R: round, right, is_not_expert, naive
+S: round, centre, is_not_expert, resistant
+T: round, centre, is_not_expert, naive
+##pre_and_post_conditions:
+Earth shape: AND(is_expert, flat) -> flat
+Earth shape: AND(round, F(1,flat), naive) -> flat
+Earth shape: AND(round, F(2,flat), resistant) -> round

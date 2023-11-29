@@ -1,0 +1,62 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X
+##Feature_propositions
+V_CS: guilty, innocent      ## Criminal status
+V_E: true, false            ## Is expert
+V_M: naive, resistant       ## Mindset
+##Edge_relations:
+A: B, C, J, F
+B: A, D, E, C, F
+C: A, F, G, B, E, G
+D: B, H
+E: B, I, C
+F: C, A, B
+G: C, H, C
+H: D, G
+I: E
+J: K, A, Q, N, U
+K: L, M, J, O
+L: K, N, O
+M: K, P, Q, R
+N: L, R, J, Q
+O: L, S, K
+P: M, T, S
+Q: M, J, N
+R: N, M
+S: O, P
+T: Q, P
+U: J, V, W
+V: U, X
+W: U, X
+X: V, W
+##Agent_assignments:
+A: V_CS(innocent), V_E(false), V_M(naive)
+B: V_CS(innocent), V_E(false), V_M(naive)
+C: V_CS(innocent), V_E(false), V_M(resistant)
+D: V_CS(guilty), V_E(true), V_M(naive)
+E: V_CS(innocent), V_E(false), V_M(resistant)
+F: V_CS(innocent), V_E(false), V_M(resistant)
+G: V_CS(innocent), V_E(false), V_M(resistant)
+H: V_CS(innocent), V_E(false), V_M(naive)
+I: V_CS(innocent), V_E(false), V_M(resistant)
+J: V_CS(innocent), V_E(true), V_M(naive)
+K: V_CS(innocent), V_E(false), V_M(resistant)
+L: V_CS(innocent), V_E(false), V_M(naive)
+M: V_CS(innocent), V_E(false), V_M(resistant)
+N: V_CS(innocent), V_E(false), V_M(naive)
+O: V_CS(innocent), V_E(false), V_M(resistant)
+P: V_CS(innocent), V_E(false), V_M(naive)
+Q: V_CS(innocent), V_E(false), V_M(resistant)
+R: V_CS(innocent), V_E(false), V_M(naive)
+S: V_CS(innocent), V_E(false), V_M(resistant)
+T: V_CS(innocent), V_E(false), V_M(naive)
+U: V_CS(innocent), V_E(true), V_M(naive)
+V: V_CS(innocent), V_E(true), V_M(naive)
+W: V_CS(innocent), V_E(true), V_M(naive)
+X: V_CS(innocent), V_E(true), V_M(naive)
+##pre_and_post_conditions:
+V_CS: AND(V_CS(innocent), V_E(false), F(1,V_CS(guilty)), V_M(naive)) -> V_CS(guilty)
+V_CS: AND(V_CS(innocent), V_E(false), F(2,V_CS(guilty)), V_M(resistant)) -> V_CS(guilty)
+V_CS: AND(V_CS(innocent), V_E(true), F(3,V_CS(guilty)), V_M(naive)) -> V_CS(guilty)
+V_CS: AND(V_CS(innocent), V_E(true), F(4,V_CS(guilty)), V_M(resistant)) -> V_CS(guilty)
+V_CS: AND(V_CS(innocent), V_E(true), F(1, AND(V_CS(guilty), V_E(true)))) -> V_CS(guilty)

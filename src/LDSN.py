@@ -9,7 +9,9 @@ class LDSN:
         values = values.replace(" ", "")
 
         ## if just a word, return literal
-        if (values.find('(') == -1):
+        # if values.find('(') == -1:
+        if values.count('(') + values.count(')') == 2:
+            # print(f"Literal -> {values}")
             return Literal(values)
         
         # First remove and retrieve the letter or word at the front, and the outermost brackets:
@@ -21,6 +23,7 @@ class LDSN:
         args = []
         arg = ""
         bracket_count = 0
+        # print(f"Values: {values}, Content: {content}")
         for c in content:
             if c == '(':
                 bracket_count += 1
@@ -39,9 +42,13 @@ class LDSN:
             return AndExpression(*[self.parse_expression(arg) for arg in args])
         elif opr == 'OR':
             return OrExpression(*[self.parse_expression(arg) for arg in args])
+        elif opr == 'NOT':
+            return NotExpression(self.parse_expression(args[0]))
         elif opr[0] == 'F':
             expr = args[1][args[1].find('(')+1:values.rfind(')')]
-            return FriendExpression(int(args[0]), self.parse_expression(expr))
+            print(f"Friend expression: {args[0]}, {args[1]}, {expr}")
+            # return FriendExpression(int(args[0]), self.parse_expression(expr))
+            return FriendExpression(int(args[0]), self.parse_expression(args[1]))
         else:
             return Literal(opr)
         
@@ -63,13 +70,26 @@ class OrExpression(LDSN):
         self.args = args
 
     def evaluate(self, agent):
-        # print("Evaluating OR expression: " + str(self))
+        # print("Evaluating expression: " + str(self))
         res = any(arg.evaluate(agent) for arg in self.args)
         # print("result: " + str(res))
         return res
     
     def __str__(self):
         return f"OR({','.join([str(arg) for arg in self.args])})"
+
+class NotExpression(LDSN):
+    def __init__(self, arg):
+        self.arg = arg
+
+    def evaluate(self, agent):
+        # print("Evaluating expression: " + str(self))
+        res = not self.arg.evaluate(agent)
+        # print("result: " + str(res))
+        return res
+    
+    def __str__(self):
+        return f"NOT({str(self.arg)})"
 
 class FriendExpression(LDSN):
     def __init__(self, n, expr):
@@ -88,7 +108,11 @@ class FriendExpression(LDSN):
 
 class Literal(LDSN):
     def __init__(self, value):
-        self.value = value.strip('()')
+        # self.var = value[:value.find('(')] # Feature proposition
+        # self.value = value[value.find('(')+1:value.rfind(')')] # Expr
+        # self.value = value.strip('()')
+        self.value = value
+
 
     def evaluate(self, agent):
         # print("Evaluating literal: " + str(self))
@@ -113,10 +137,12 @@ class Rule:
         return self.consequent
     
     ## Evalues the rule, and applies the consequent if the antecedent is true
-    # Returns true only if consequent changed the belief of the agent
+    # Returns true only if consequent changed the belief of the agent (pre condition -> post condition)
     def evaluate(self, agent):
+        print(f"Agent: {agent.name}, FP: {agent.FP}, Antecedent: {self.antecedent}")
         index = self.properties.index(self.property)
         if self.antecedent.evaluate(agent):
+            # print(f"Evaluated to TRUE for agent {agent.name} with FP {agent.FP}. Antecedent: {self.antecedent}, Consequent: {self.consequent}")
             before = agent.FP[index]
             agent.FP[index] = self.consequent
             return before != agent.FP[index]

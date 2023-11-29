@@ -8,16 +8,16 @@ class NetworkSimulations:
         self.simulation = None
         self.network = network
 
-    def simulate_network(self, network, initial_node, print_to_graph=False):
+    def simulate_network(self, network, initial_node, cascade_literal, print_to_graph=False):
 
         print("Running simulation on network: " + str(network.filename))
 
         # Print initial graph of network:
         if print_to_graph:
-            self.create_graph(network, None, 0, 0)
+            self.create_graph(network, None, cascade_literal, 0, 0)
 
         # Initialize queue with root node:
-        queue = [[initial_node]]
+        queue = [initial_node]
         rules = network.rules
 
         iterations = 0
@@ -29,7 +29,6 @@ class NetworkSimulations:
         # While queue is not empty:
         while queue:
             print("Running iteration " + str(iterations))
-            # state_changed = False
 
             # Pop first node from queue:
             current_node = queue.pop(0)
@@ -39,14 +38,15 @@ class NetworkSimulations:
                 print("Proceeding with current agent: " + str(current_agent.name))
 
                 # Print graph of network:
-                if print_to_graph and graphs < 12:
+                # if print_to_graph and graphs < 12:
+                if print_to_graph:
                     graphs += 1
-                    self.create_graph(network, current_agent, num_changes, graphs)
+                    self.create_graph(network, current_agent, cascade_literal, num_changes, graphs)
                 
                 for friend in current_agent.friends:
                     # If rule evaluates to true, add friend to queue:
                     if any(rule.evaluate(friend) for rule in rules):
-                        print("Agent " + str(friend.name) + " changed belief to: " + str(current_agent.FP))
+                        print("Agent " + str(friend.name) + " changed belief to: " + str(friend.FP))
                         agent_lst.append(friend)
                         # queue.append(friend)
                 
@@ -62,18 +62,18 @@ class NetworkSimulations:
         # Print final graph of network:
         if print_to_graph:
             graphs += 1
-            self.create_graph(network, None, num_changes, graphs)
+            self.create_graph(network, None, cascade_literal, num_changes, graphs)
 
-    def create_graph(self, network, current_agent, num_changes, graphs):
+    def create_graph(self, network, current_agent, cascade_literal, num_changes, graphs):
         print("Printing graph of network...")
         dir = "Graphs/" + str(network.filename) + "/"
         path_to_graph = dir + str(network.filename) + "-" + str(num_changes)
         path_to_dot = dir + "/dot_representation/" + network.filename + "-" + str(num_changes) + ".dot"
-        dot_string = self.network_to_dot(network, current_agent)
+        dot_string = self.network_to_dot(network, current_agent, cascade_literal)
         self.dot_to_file(dot_string, path_to_dot)
         self.dot_to_graph(dot_string, path_to_graph)
 
-    def network_to_dot(self, network, current_agent):
+    def network_to_dot(self, network, current_agent, cascade_literal):
         dot_string = "graph {\n rankdir=LR;\n"
         added_edges = set()
 
@@ -83,11 +83,13 @@ class NetworkSimulations:
             agent = network.get_agent_from_name(agent_name)
             if agent == current_agent:
                 color = "green"
-            elif agent.FP[0] == "flat":
+            elif agent.FP[0] == str(cascade_literal[0]):
                 color = "red"
+            elif agent.FP[0] == str(cascade_literal[1]):
+                color = "yellow"
             else:
                 color = "lightblue"
-            label_param = "label=<" + agent_name + "<BR /><FONT POINT-SIZE=\"10\">" + str(agent.FP[3]) + "</FONT>>"
+            label_param = "label=<" + agent_name + "<BR /><FONT POINT-SIZE=\"10\">" + str(agent.FP[2]) + ", " + str(agent.FP[1]) + "</FONT>>"
             params = "[" + label_param + "," + "style=filled, color=" + color + "];\n"
             dot_string += str(agent_name) + params
             

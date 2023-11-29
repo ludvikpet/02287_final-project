@@ -1,0 +1,23 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_R(large), V_E(false)</FONT>>,style=filled, color=red];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_R(small), V_E(false)</FONT>>,style=filled, color=red];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_R(small), V_E(false)</FONT>>,style=filled, color=red];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_R(small), V_E(false)</FONT>>,style=filled, color=red];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_R(small), V_E(false)</FONT>>,style=filled, color=green];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_R(none), V_E(true)</FONT>>,style=filled, color=yellow];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_R(none), V_E(true)</FONT>>,style=filled, color=yellow];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_R(none), V_E(true)</FONT>>,style=filled, color=yellow];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_R(none), V_E(true)</FONT>>,style=filled, color=yellow];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_R(none), V_E(true)</FONT>>,style=filled, color=yellow];
+A -- {{B C D E F }}
+B -- {{C D E G }}
+C -- {{D E H }}
+D -- {{E I }}
+E -- {{J }}
+F -- {{}}
+G -- {{}}
+H -- {{}}
+I -- {{}}
+J -- {{}}
+}

@@ -1,0 +1,29 @@
+##Agent_names
+A, B, C, D, E
+##Feature_propositions
+V_CS: guilty, uncertain, innocent      ## Criminal status
+##Threshold:
+V_CS: T_guilty=0.4, T_innocent=0.6
+##Edge_relations:
+A: B
+B: A, C, D
+C: B, D, E
+D: B, C, E
+E: C, D
+##Agent_assignments:
+A: (V_CS(guilty), p(guilty) = 0.7)
+B: (V_CS(uncertain), p(guilty) = 0.55)
+C: (V_CS(uncertain), p(guilty) = 0.45)
+D: (V_CS(innocent), p(guilty) = 0.35)
+E: (V_CS(uncertain), p(guilty) = 0.5)
+##pre_and_post_conditions:
+V_CS: mu(guilty|evidence) < 0.4 -> V_CS(innocent)
+V_CS: 0.4 < mu(guilty|evidence) < 0.6 -> V_CS(uncertain)
+V_CS: mu(guilty|evidence) > 0.6 -> V_CS(guilty)
+
+
+## Simulation -> A says he is guilty:
+
+# For B:
+mu(guilty) = 0.55
+mu(evidence) = 0.7 * 

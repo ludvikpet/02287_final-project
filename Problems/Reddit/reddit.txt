@@ -1,0 +1,36 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J
+##Feature_propositions
+V_CS: guilty, not_proven, innocent      ## Criminal status
+V_E: true, false                        ## Is expert
+V_R: large, small, none                 ## Reddit contribution
+V_M: naive, resistant                   ## Mindset
+##Edge_relations:
+A: B, C, D, E, F
+B: A, C, D, E, G
+C: B, A, D, E, H
+D: B, C, A, E, I
+E: B, C, D, A, J
+F: A
+G: B
+H: C
+I: D
+J: E
+##Agent_assignments:
+A: V_CS(guilty), V_E(false), V_R(large), V_M(resistant)
+B: V_CS(not_proven), V_E(false), V_R(small), V_M(naive)
+C: V_CS(not_proven), V_E(false), V_R(small), V_M(naive)
+D: V_CS(not_proven), V_E(false), V_R(small), V_M(naive)
+E: V_CS(not_proven), V_E(false), V_R(small), V_M(naive)
+F: V_CS(innocent), V_E(true), V_R(none), V_M(naive)
+G: V_CS(innocent), V_E(true), V_R(none), V_M(naive)
+H: V_CS(innocent), V_E(true), V_R(none), V_M(naive)
+I: V_CS(innocent), V_E(true), V_R(none), V_M(naive)
+J: V_CS(innocent), V_E(true), V_R(none), V_M(naive)
+##pre_and_post_conditions:
+V_CS: AND(V_E(false), F(1,AND(V_CS(guilty), V_R(large)))) -> V_CS(guilty)
+V_CS: AND(V_E(false), F(1,AND(V_CS(innocent), V_R(large)))) -> V_CS(innocent)
+V_CS: AND(V_E(false), F(3,AND(V_CS(guilty)))) -> V_CS(guilty)
+V_CS: AND(V_E(false), F(3,AND(V_CS(innocent)))) -> V_CS(innocent)
+V_CS: AND(V_E(false), AND(F(1,V_CS(innocent), V_E(true)), NOT(F(3,AND(V_CS(guilty)))))) -> V_CS(innocent)
+V_CS: AND(V_E(false), AND(F(1,V_CS(guilty), V_E(true)), NOT(F(3,AND(V_CS(innocent)))))) -> V_CS(guilty)

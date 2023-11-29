@@ -1,0 +1,43 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=red];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=red];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=red];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=red];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=red];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=green];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+K[label=<K<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+L[label=<L<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=lightblue];
+M[label=<M<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+N[label=<N<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=lightblue];
+O[label=<O<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+P[label=<P<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=lightblue];
+Q[label=<Q<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+R[label=<R<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=lightblue];
+S[label=<S<BR /><FONT POINT-SIZE="10">V_M(resistant)</FONT>>,style=filled, color=lightblue];
+T[label=<T<BR /><FONT POINT-SIZE="10">V_M(naive)</FONT>>,style=filled, color=lightblue];
+A -- {{B C J F }}
+B -- {{D E C F }}
+C -- {{F G E }}
+D -- {{H }}
+E -- {{I }}
+F -- {{}}
+G -- {{H }}
+H -- {{}}
+I -- {{}}
+J -- {{K Q N }}
+K -- {{L M O }}
+L -- {{N O }}
+M -- {{P Q R }}
+N -- {{R Q }}
+O -- {{S }}
+P -- {{T S }}
+Q -- {{}}
+R -- {{}}
+S -- {{}}
+T -- {{Q }}
+}

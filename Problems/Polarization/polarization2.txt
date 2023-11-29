@@ -1,0 +1,53 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
+##Feature_propositions
+V_CS: guilty, not_proven, innocent      ## Criminal status
+V_E: true, false                        ## Is expert
+V_M: naive, resistant                   ## Mindset
+##Edge_relations:
+A: B, C
+B: A, D, E, F, G
+C: A, D, E, F, G
+D: B, C, H, I
+E: B, C, H, I
+F: B, C, H, I
+G: B, C, H, I
+H: D, E, F, G, S
+I: D, E, F, G, S
+J: L, M, N, O, S
+K: L, M, N, O, S
+L: P, Q, J, K
+M: P, Q, J, K
+N: P, Q, J, K
+O: P, Q, J, K
+P: L, M, N, O, R
+Q: L, M, N, O, R
+R: P, Q
+S: H, I, J, K
+##Agent_assignments:
+A: V_CS(guilty), V_E(true), V_M(resistant)
+B: V_CS(not_proven), V_E(false), V_M(naive)
+C: V_CS(not_proven), V_E(false), V_M(naive)
+D: V_CS(not_proven), V_E(false), V_M(naive)
+E: V_CS(not_proven), V_E(false), V_M(naive)
+F: V_CS(not_proven), V_E(false), V_M(naive)
+G: V_CS(not_proven), V_E(false), V_M(naive)
+H: V_CS(not_proven), V_E(false), V_M(naive)
+I: V_CS(not_proven), V_E(false), V_M(naive)
+J: V_CS(not_proven), V_E(false), V_M(naive)
+K: V_CS(not_proven), V_E(false), V_M(naive)
+L: V_CS(not_proven), V_E(false), V_M(naive)
+M: V_CS(not_proven), V_E(false), V_M(naive)
+N: V_CS(not_proven), V_E(false), V_M(naive)
+O: V_CS(not_proven), V_E(false), V_M(naive)
+P: V_CS(not_proven), V_E(false), V_M(naive)
+Q: V_CS(not_proven), V_E(false), V_M(naive)
+R: V_CS(innocent), V_E(true), V_M(resistant)
+S: V_CS(not_proven), V_E(true), V_M(naive)
+##pre_and_post_conditions:
+V_CS: AND(V_E(false), F(1,AND(V_CS(guilty), V_E(true)))) -> V_CS(guilty)
+V_CS: AND(V_E(false), F(2,V_CS(guilty)), V_M(naive)) -> V_CS(guilty)
+V_CS: AND(V_CS(not_proven), V_E(true), F(2,V_CS(guilty)), V_M(naive)) -> V_CS(guilty)
+V_CS: AND(V_E(false), F(1,AND(V_CS(innocent), V_E(true)))) -> V_CS(innocent)
+V_CS: AND(V_E(false), F(2,V_CS(innocent)), V_M(naive)) -> V_CS(innocent)
+V_CS: AND(V_CS(not_proven), V_E(true), F(2,V_CS(innocent)), V_M(naive)) -> V_CS(innocent)

@@ -37,9 +37,9 @@ class Network:
 
                 line_split = elem.split(': ')
                 if scope == 0: # Read feature propositions and its values
-                    V, Rs = line_split[0], line_split[1].split(', ')
-                    # V, Rs = line_split[0], line_split[1].split('##')[0].strip().split(', ')
-                    # print(f"V:{V},\nRs: {Rs}")
+                    # V, Rs = line_split[0], line_split[1].split(', ')
+                    V, Rs = line_split[0], line_split[1].split('##')[0].strip().split(', ')
+                    print(f"V:{V},\nRs: {Rs}")
                     FP[V] = Rs
                     FP_in_order.append(V)
                     FP_list.append(V)
@@ -72,6 +72,7 @@ class Network:
         self.network = network # Str -> Str[]
         self.agents = name_to_agent # Str -> Agent
         self.rules = rules
+        print(f"Rules -> {[str(rule) for rule in self.rules]}")
     
     def get_agent_from_name(self, name):
         return self.agents[name]

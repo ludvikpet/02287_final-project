@@ -1,0 +1,51 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=lightblue];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=lightblue];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=red];
+K[label=<K<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+L[label=<L<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+M[label=<M<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+N[label=<N<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+O[label=<O<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+P[label=<P<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+Q[label=<Q<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+R[label=<R<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+S[label=<S<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=red];
+T[label=<T<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+U[label=<U<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=red];
+V[label=<V<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=red];
+W[label=<W<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=green];
+X[label=<X<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(true)</FONT>>,style=filled, color=red];
+A -- {{B C J F }}
+B -- {{D E C F }}
+C -- {{F G E }}
+D -- {{H }}
+E -- {{I }}
+F -- {{}}
+G -- {{H }}
+H -- {{}}
+I -- {{}}
+J -- {{K Q N U }}
+K -- {{L M O }}
+L -- {{N O }}
+M -- {{P Q R }}
+N -- {{R Q }}
+O -- {{S }}
+P -- {{T S }}
+Q -- {{}}
+R -- {{}}
+S -- {{}}
+T -- {{Q }}
+U -- {{V W }}
+V -- {{X }}
+W -- {{X }}
+X -- {{}}
+}
