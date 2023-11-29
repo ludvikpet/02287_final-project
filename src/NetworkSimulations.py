@@ -74,7 +74,7 @@ class NetworkSimulations:
         self.dot_to_graph(dot_string, path_to_graph)
 
     def network_to_dot(self, network, current_agent, cascade_literal):
-        dot_string = "graph {\n rankdir=LR;\n"
+        dot_string = "graph {\n rankdir=TB;\n"
         added_edges = set()
 
         # Define nodes and colors

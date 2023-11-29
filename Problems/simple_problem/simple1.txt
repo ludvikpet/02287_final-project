@@ -1,7 +1,7 @@
 ##Agent_names
-A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
+A, B, C, D, E, F
 ##Feature_propositions
-V_CS: guilty, not_proven, innocent      ## Criminal status
+V_CS: guilty, innocent      ## Criminal status
 V_E: true, false            ## Is expert
 V_M: naive, resistant       ## Mindset
 ##Edge_relations:
@@ -32,20 +32,6 @@ C: V_CS(innocent), V_E(false), V_M(resistant)
 D: V_CS(guilty), V_E(true), V_M(naive)
 E: V_CS(innocent), V_E(false), V_M(resistant)
 F: V_CS(innocent), V_E(false), V_M(resistant)
-G: V_CS(innocent), V_E(false), V_M(resistant)
-H: V_CS(innocent), V_E(false), V_M(naive)
-I: V_CS(innocent), V_E(false), V_M(resistant)
-J: V_CS(innocent), V_E(false), V_M(naive)
-K: V_CS(innocent), V_E(false), V_M(resistant)
-L: V_CS(innocent), V_E(false), V_M(naive)
-M: V_CS(innocent), V_E(false), V_M(resistant)
-N: V_CS(innocent), V_E(false), V_M(naive)
-O: V_CS(innocent), V_E(false), V_M(resistant)
-P: V_CS(innocent), V_E(false), V_M(naive)
-Q: V_CS(innocent), V_E(false), V_M(resistant)
-R: V_CS(innocent), V_E(false), V_M(naive)
-S: V_CS(innocent), V_E(false), V_M(resistant)
-T: V_CS(innocent), V_E(false), V_M(naive)
 ##pre_and_post_conditions:
 V_CS: AND(V_E(true), V_CS(guilty)) -> V_CS(guilty)
 V_CS: AND(V_CS(innocent), F(1,V_CS(guilty)), V_M(naive)) -> V_CS(guilty)

@@ -1,0 +1,43 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+K[label=<K<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=lightblue];
+L[label=<L<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=lightblue];
+M[label=<M<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+N[label=<N<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=red];
+O[label=<O<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+P[label=<P<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=lightblue];
+Q[label=<Q<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+R[label=<R<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=green];
+S[label=<S<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=lightblue];
+T[label=<T<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=lightblue];
+A -- {{B C J K }}
+B -- {{D E C F }}
+C -- {{F G E L J T }}
+D -- {{H F S }}
+E -- {{I }}
+F -- {{}}
+G -- {{H I }}
+H -- {{}}
+I -- {{}}
+J -- {{}}
+K -- {{L M P }}
+L -- {{M }}
+M -- {{N }}
+N -- {{R Q O }}
+O -- {{Q S }}
+P -- {{T S Q R }}
+Q -- {{}}
+R -- {{}}
+S -- {{}}
+T -- {{Q }}
+}

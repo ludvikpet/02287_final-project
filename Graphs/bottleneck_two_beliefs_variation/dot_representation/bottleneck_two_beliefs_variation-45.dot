@@ -1,0 +1,43 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+K[label=<K<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(false)</FONT>>,style=filled, color=yellow];
+L[label=<L<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+M[label=<M<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+N[label=<N<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=red];
+O[label=<O<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=green];
+P[label=<P<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+Q[label=<Q<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+R[label=<R<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+S[label=<S<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+T[label=<T<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+A -- {{B C J K }}
+B -- {{D E C F }}
+C -- {{F G E L J T }}
+D -- {{H F S }}
+E -- {{I }}
+F -- {{}}
+G -- {{H I }}
+H -- {{}}
+I -- {{}}
+J -- {{}}
+K -- {{L M P }}
+L -- {{M }}
+M -- {{N }}
+N -- {{R Q O }}
+O -- {{Q S }}
+P -- {{T S Q R }}
+Q -- {{}}
+R -- {{}}
+S -- {{}}
+T -- {{Q }}
+}

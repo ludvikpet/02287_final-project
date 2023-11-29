@@ -1,0 +1,55 @@
+##Agent_names
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
+##Feature_propositions
+V_CS: guilty, not_proven, innocent      ## Criminal status
+V_E: true, false                        ## Is expert
+V_M: naive, resistant                   ## Mindset
+##Edge_relations:
+A: B, C, K
+B: A, D, E, C, F
+C: A, F, G, B, E, G, L, J, T
+D: B, H, F, S
+E: B, I, C
+F: C, B, D
+G: C, H, C, I
+H: D, G
+I: E, G
+J: C
+K: L, M, A, P, K
+L: K, M, C
+M: N, L, K
+N: R, Q, O, M, S
+O: N, Q, S
+P: T, S, Q, R, K
+Q: N, O, P
+R: N, P
+S: O, P, D, N
+T: Q, P, C
+##Agent_assignments:
+A: V_CS(innocent), V_E(true), V_M(resistant)
+B: V_CS(not_proven), V_E(false), V_M(resistant)
+C: V_CS(not_proven), V_E(false), V_M(resistant)
+D: V_CS(innocent), V_E(true), V_M(resistant)
+E: V_CS(not_proven), V_E(false), V_M(resistant)
+F: V_CS(not_proven), V_E(false), V_M(resistant)
+G: V_CS(not_proven), V_E(false), V_M(resistant)
+H: V_CS(innocent), V_E(true), V_M(resistant)
+I: V_CS(innocent), V_E(true), V_M(resistant)
+J: V_CS(not_proven), V_E(false), V_M(naive)
+K: V_CS(not_proven), V_E(false), V_M(resistant)
+L: V_CS(not_proven), V_E(false), V_M(naive)
+M: V_CS(innocent), V_E(true), V_M(resistant)
+N: V_CS(guilty), V_E(true), V_M(resistant)
+O: V_CS(not_proven), V_E(false), V_M(naive)
+P: V_CS(not_proven), V_E(false), V_M(naive)
+Q: V_CS(not_proven), V_E(false), V_M(naive)
+R: V_CS(not_proven), V_E(false), V_M(naive)
+S: V_CS(not_proven), V_E(false), V_M(naive)
+T: V_CS(not_proven), V_E(false), V_M(naive)
+##pre_and_post_conditions:
+V_CS: AND(V_E(false), F(1,AND(V_E(true), V_CS(innocent)))) -> V_CS(innocent)
+V_CS: AND(V_E(false), F(1,AND(V_E(true), V_CS(guilty)))) -> V_CS(guilty)
+V_CS: AND(V_E(false), V_M(naive), OR(V_CS(innocent), V_CS(not_proven)), F(1,V_CS(guilty))) -> V_CS(guilty)
+V_CS: AND(V_E(false), V_M(naive), OR(V_CS(guilty), V_CS(not_proven)), F(1,V_CS(innocent))) -> V_CS(innocent)
+V_CS: AND(V_E(false), V_M(resistant), OR(V_CS(innocent), V_CS(not_proven)), F(2,V_CS(guilty))) -> V_CS(guilty)
+V_CS: AND(V_E(false), V_M(resistant), OR(V_CS(guilty), V_CS(not_proven)), F(2,V_CS(innocent))) -> V_CS(innocent)

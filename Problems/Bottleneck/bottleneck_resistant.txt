@@ -7,7 +7,7 @@ V_M: naive, resistant       ## Mindset
 ##Edge_relations:
 A: B, C, J, F
 B: A, D, E, C, F
-C: A, F, G, B, E, G
+C: A, F, G, B, E, G, J
 D: B, H
 E: B, I, C
 F: C, A, B
