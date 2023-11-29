@@ -1,0 +1,39 @@
+graph {
+ rankdir=LR;
+A[label=<A<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=red];
+B[label=<B<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+C[label=<C<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+D[label=<D<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+E[label=<E<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+F[label=<F<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+G[label=<G<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+H[label=<H<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+I[label=<I<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=red];
+J[label=<J<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+K[label=<K<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+L[label=<L<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+M[label=<M<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+N[label=<N<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+O[label=<O<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+P[label=<P<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+Q[label=<Q<BR /><FONT POINT-SIZE="10">V_M(naive), V_E(false)</FONT>>,style=filled, color=yellow];
+R[label=<R<BR /><FONT POINT-SIZE="10">V_M(resistant), V_E(true)</FONT>>,style=filled, color=yellow];
+A -- {{B C }}
+B -- {{D E F G }}
+C -- {{D E F G }}
+D -- {{H }}
+E -- {{H }}
+F -- {{I }}
+G -- {{I }}
+H -- {{J }}
+I -- {{K }}
+J -- {{L M }}
+K -- {{N O }}
+L -- {{P Q }}
+M -- {{P Q }}
+N -- {{P Q }}
+O -- {{P Q }}
+P -- {{R }}
+Q -- {{R }}
+R -- {{}}
+}
